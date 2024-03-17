@@ -1,0 +1,119 @@
+﻿  TicTacToeOnline.cpp
+  _Server.cpp
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(6,43): error C2597: недопустимая ссылка на нестатический член "_Server::wsaData"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(6,10):
+   см. объявление "_Server::wsaData"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(6,15): error C2664: "int WSAStartup(WORD,LPWSADATA)": невозможно преобразовать аргумент 2 из "WSADATA _Server::* " в "LPWSADATA"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(6,42):
+  Не существует контекста, в котором такое преобразование возможно
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\WinSock2.h(2357,1):
+   см. объявление "WSAStartup"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(6,15):
+  при попытке сопоставить список аргументов "(WORD, WSADATA _Server::* )"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(6,10): error C2597: недопустимая ссылка на нестатический член "_Server::rv"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,6):
+   см. объявление "_Server::rv"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(7,57): error C2597: недопустимая ссылка на нестатический член "_Server::rv"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,6):
+   см. объявление "_Server::rv"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(16,13): error C2597: недопустимая ссылка на нестатический член "_Server::hints"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(7,11):
+   см. объявление "_Server::hints"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(16,5): error C2664: "void *memset(void *,int,size_t)": невозможно преобразовать аргумент 1 из "addrinfo _Server::* " в "void *"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(16,12):
+  Не существует контекста, в котором такое преобразование возможно
+  D:\Programming\Visual Studio\Visual_Studio\VC\Tools\MSVC\14.38.33130\include\vcruntime_string.h(63,15):
+   см. объявление "memset"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(16,5):
+  при попытке сопоставить список аргументов "(addrinfo _Server::* , int, size_t)"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,42): error C2597: недопустимая ссылка на нестатический член "_Server::hints"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(7,11):
+   см. объявление "_Server::hints"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,50): error C2597: недопустимая ссылка на нестатический член "_Server::servinfo"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(7,19):
+   см. объявление "_Server::servinfo"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,15): error C2664: "INT getaddrinfo(PCSTR,PCSTR,const ADDRINFOA *,PADDRINFOA *)": невозможно преобразовать аргумент 3 из "addrinfo _Server::* " в "const ADDRINFOA *"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,41):
+  Не существует контекста, в котором такое преобразование возможно
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\WS2tcpip.h(121,1):
+   см. объявление "getaddrinfo"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,15):
+  при попытке сопоставить список аргументов "(const char *, const char [5], addrinfo _Server::* , addrinfo *_Server::* )"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(19,10): error C2597: недопустимая ссылка на нестатический член "_Server::rv"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,6):
+   см. объявление "_Server::rv"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(20,62): error C2597: недопустимая ссылка на нестатический член "_Server::rv"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,6):
+   см. объявление "_Server::rv"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,10): error C2597: недопустимая ссылка на нестатический член "_Server::p"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(7,30):
+   см. объявление "_Server::p"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,24): error C2597: недопустимая ссылка на нестатический член "_Server::p"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,24):
+   см. объявление "_Server::p"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,24): error C3867: "_Server::p": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,24): error C2568: !=: не удается разрешить перегрузку функции
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(27,23): error C2660: socket: функция не принимает 1 аргументов
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\WinSock2.h(2178,1):
+   см. объявление "socket"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(27,23):
+  при попытке сопоставить список аргументов "()"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(27,14): error C2597: недопустимая ссылка на нестатический член "_Server::sockfd"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,10):
+   см. объявление "_Server::sockfd"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(28,25): error C2597: недопустимая ссылка на нестатический член "_Server::sockfd"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,10):
+   см. объявление "_Server::sockfd"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(32,21): error C2597: недопустимая ссылка на нестатический член "_Server::sockfd"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,10):
+   см. объявление "_Server::sockfd"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(33,25): error C2597: недопустимая ссылка на нестатический член "_Server::sockfd"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,10):
+   см. объявление "_Server::sockfd"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(40,9): error C2597: недопустимая ссылка на нестатический член "_Server::p"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(40,9):
+   см. объявление "_Server::p"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(40,9): error C3867: "_Server::p": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(40,9): error C2568: ==: не удается разрешить перегрузку функции
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(44,18): error C2597: недопустимая ссылка на нестатический член "_Server::servinfo"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(7,19):
+   см. объявление "_Server::servinfo"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(45,54): error C2597: недопустимая ссылка на нестатический член "_Server::s"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(9,7):
+   см. объявление "_Server::s"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(45,5): error C2660: inet_ntop: функция не принимает 3 аргументов
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\WS2tcpip.h(593,1):
+   см. объявление "inet_ntop"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(45,5):
+  при попытке сопоставить список аргументов "()"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(46,43): error C2597: недопустимая ссылка на нестатический член "_Server::s"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(9,7):
+   см. объявление "_Server::s"
+  
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(52,17): error C2597: недопустимая ссылка на нестатический член "_Server::sockfd"
+  D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.h(8,10):
+   см. объявление "_Server::sockfd"
+  
+  Создание кода...
