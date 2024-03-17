@@ -7,10 +7,10 @@ private:
 	static addrinfo hints, *servinfo, *p;
 	static int rv, sockfd;
 	static char s[INET6_ADDRSTRLEN];
-
-	_Server() {};
 public:
+	_Server() = delete;
+
 	static void Start();
-	static void Connect(const char* serAdd);
+	static void Bind();
 	static void Close();
 };

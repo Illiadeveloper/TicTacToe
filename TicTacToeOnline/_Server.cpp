@@ -1,5 +1,12 @@
 #include "_Server.h"
 
+WSADATA _Server::wsaData;
+addrinfo _Server::hints;
+addrinfo* _Server::servinfo;
+addrinfo* _Server::p;
+int _Server::rv;
+int _Server::sockfd;
+char _Server::s[INET6_ADDRSTRLEN];
 
 void _Server::Start()
 {
@@ -11,12 +18,12 @@ void _Server::Start()
 }
 
 
-void _Server::Connect(const char* serAdd)
+void _Server::Bind()
 {
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
-    if ((rv = getaddrinfo(serAdd, PORT, &hints, &servinfo)) != 0) {
+    if ((rv = getaddrinfo("localhost", PORT, &hints, &servinfo)) != 0) {
         std::cout << "[ERROR] getaddrinfo: " << gai_strerror(rv) << std::endl;
         return;
     }
@@ -29,25 +36,31 @@ void _Server::Connect(const char* serAdd)
             std::cout << "[WAR]server: socket" << std::endl;
             continue;
         }
-        if (connect(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
+        if (bind(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
             closesocket(sockfd);
-            std::cout << "[WAR] client: connect" << std::endl;
+            std::cout << "[WAR] server: bind" << std::endl;
             continue;
         }
         break;
     }
 
     if (p == NULL) {
-        std::cout << "[ERROR] client failed to connected" << std::endl;
+        std::cout << "[ERROR] server failed to bind" << std::endl;
         return;
     }
     freeaddrinfo(servinfo);
-    inet_ntop(p->ai_family, get_in_addr(p->ai_addr), s, sizeof(s));
-    std::cout << "[LOG] connected to " << s << std::endl;
+    
+    if ((listen(sockfd, BACKLOG) == -1)) {
+        std::cout << "[ERROR] listen" << std::endl;
+        closesocket(sockfd);
+    }
+
+    std::cout << "Waiting for connection..." << std::endl;
 }
 
 void _Server::Close()
 {
     WSACleanup();
     closesocket(sockfd);
+    std::cout << "[LOG] Server close..." << std::endl;
 }

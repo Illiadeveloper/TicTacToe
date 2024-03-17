@@ -2,6 +2,7 @@
 #define PORT "9034"
 #define WIN32_LEAN_AND_MEAN
 #define LRB 512
+#define BACKLOG 10
 
 #include<iostream>
 #include<Windows.h>
@@ -10,7 +11,8 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-void* get_in_addr(sockaddr* addr) {
+
+inline void* get_in_addr(sockaddr* addr) {
 	if (addr->sa_family == AF_INET) {
 		return &(((sockaddr_in*)addr)->sin_addr);
 	}

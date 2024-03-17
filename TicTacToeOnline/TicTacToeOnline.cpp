@@ -4,5 +4,6 @@
 int main()
 {
     _Server::Start();
-    std::cout << "Hello World!\n";
+    _Server::Bind();
+    _Server::Close();
 }
