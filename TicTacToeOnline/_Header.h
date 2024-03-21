@@ -1,7 +1,6 @@
 #pragma once
 #define PORT "9034"
 #define WIN32_LEAN_AND_MEAN
-#define LRB 512
 #define BACKLOG 10
 
 #include<iostream>

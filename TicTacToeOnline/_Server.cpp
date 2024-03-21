@@ -1,21 +1,13 @@
 #include "_Server.h"
 
-WSADATA _Server::wsaData;
 addrinfo _Server::hints;
 addrinfo* _Server::servinfo;
 addrinfo* _Server::p;
+sockaddr_storage _Server::their_addr;
 int _Server::rv;
 int _Server::sockfd;
+int _Server::new_fd;
 char _Server::s[INET6_ADDRSTRLEN];
-
-void _Server::Start()
-{
-    if ((rv = WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)) {
-        std::cout << "[ERROR] WSAStartup failed == " << rv << std::endl;
-        return;
-    }
-    std::cout << "[LOG] WSAStartup stated" << std::endl;
-}
 
 
 void _Server::Bind()
@@ -48,6 +40,7 @@ void _Server::Bind()
         std::cout << "[ERROR] server failed to bind" << std::endl;
         return;
     }
+    std::cout << "[LOG] Server connected" << std::endl;
     freeaddrinfo(servinfo);
     
     if ((listen(sockfd, BACKLOG) == -1)) {
@@ -55,7 +48,28 @@ void _Server::Bind()
         closesocket(sockfd);
     }
 
-    std::cout << "Waiting for connection..." << std::endl;
+    std::cout << "[LOG] Server has started listen" << std::endl;
+}
+
+void _Server::Accept()
+{
+    int size_addr = sizeof(their_addr);
+
+    std::cout << "[LOG] Waiting for connection..." << std::endl;
+
+    new_fd = accept(sockfd, (sockaddr*)&their_addr, &size_addr);
+    if (new_fd == -1) {
+        std::cout << "[WAR] accept" << std::endl;
+        return;
+    }
+    inet_ntop(their_addr.ss_family, get_in_addr((sockaddr*)&their_addr), s, sizeof(s));
+    std::cout << "[LOG] got connect from" << s << std::endl;
+
+    if (send(new_fd, "Hello Client!", 13, 0) == -1) {
+        std::cout << "[ERROR] can't send" << std::endl;
+        closesocket(new_fd);
+    }
+    closesocket(new_fd);
 }
 
 void _Server::Close()

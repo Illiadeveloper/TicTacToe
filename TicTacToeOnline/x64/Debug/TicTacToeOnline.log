@@ -1,6 +1,5 @@
-﻿  TicTacToeOnline.cpp
-  _Server.cpp
-D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(34,29): warning C4244: =: преобразование "SOCKET" в "int", возможна потеря данных
-D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(39,39): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  Создание кода...
+﻿  _Server.cpp
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(26,29): warning C4244: =: преобразование "SOCKET" в "int", возможна потеря данных
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(31,39): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Server.cpp(60,20): warning C4244: =: преобразование "SOCKET" в "int", возможна потеря данных
   TicTacToeOnline.vcxproj -> D:\Programming\Visual Studio\C++\TicTacToeOnline\x64\Debug\TicTacToeOnline.exe

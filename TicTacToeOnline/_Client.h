@@ -3,10 +3,10 @@
 class _Client
 {
 private:
-	_Client() {}
 
 
 public:
+	_Client() = delete;
 
 };
 
