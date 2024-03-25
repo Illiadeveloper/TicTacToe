@@ -2,6 +2,7 @@
 #define PORT "9034"
 #define WIN32_LEAN_AND_MEAN
 #define BACKLOG 10
+#define MAXDATASIZE 100
 
 #include<iostream>
 #include<Windows.h>

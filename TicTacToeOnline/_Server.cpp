@@ -21,7 +21,7 @@ void _Server::Bind()
     }
 
     std::cout << "[LOG] getaddrinfo" << std::endl;
-    std::cout << "[LOG] trying to connect..." << std::endl;
+    std::cout << "[LOG] trying to bind..." << std::endl;
     for (p = servinfo; p != NULL; p = p->ai_next) {
         if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
             closesocket(sockfd);
@@ -63,7 +63,7 @@ void _Server::Accept()
         return;
     }
     inet_ntop(their_addr.ss_family, get_in_addr((sockaddr*)&their_addr), s, sizeof(s));
-    std::cout << "[LOG] got connect from" << s << std::endl;
+    std::cout << "[LOG] got connect from " << s << std::endl;
 
     if (send(new_fd, "Hello Client!", 13, 0) == -1) {
         std::cout << "[ERROR] can't send" << std::endl;
@@ -74,7 +74,6 @@ void _Server::Accept()
 
 void _Server::Close()
 {
-    WSACleanup();
     closesocket(sockfd);
     std::cout << "[LOG] Server close..." << std::endl;
 }
