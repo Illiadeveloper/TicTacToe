@@ -1,4 +1,2 @@
-﻿  _Client.cpp
-D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Client.cpp(25,23): warning C4244: =: преобразование "SOCKET" в "int", возможна потеря данных
-D:\Programming\Visual Studio\C++\TicTacToeOnline\TicTacToeOnline\_Client.cpp(31,36): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+﻿  TicTacToeOnline.cpp
   TicTacToeOnline.vcxproj -> D:\Programming\Visual Studio\C++\TicTacToeOnline\x64\Debug\TicTacToeOnline.exe

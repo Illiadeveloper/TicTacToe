@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include"_Server.h"
 #include"_Client.h"
+#include"TicTacToe.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +12,38 @@ int main(int argc, char *argv[])
     }
     std::cout << "[LOG] WSAStartup stated" << std::endl;
 
-    if (strcmp(argv[1], "0") == 0) {
+
+    TicTacToe::InitializeBoard();
+    TicTacToe::ShowBoard();
+
+    int pos;
+    int result;
+    bool curPlayer = true;
+    bool moveMade = true;
+    while (true) {
+        if (moveMade) {
+            if (curPlayer) { std::cout << "Your turn "; }
+            else { std::cout << "Enemy's turn... "; }
+        }
+        moveMade = false;
+
+        std::cin >> pos;
+
+        if ((result = TicTacToe::Turn(pos)) == -1) {
+            std::cout << "0 < pos < 10 ";
+            continue;
+        }
+        else if (result == -2) {
+            std::cout << "This position already taken ";
+            continue;
+        }
+
+        TicTacToe::ShowBoard();
+        curPlayer = !curPlayer;
+        moveMade = true;
+    }
+    
+    /*if (strcmp(argv[1], "0") == 0) {
         _Server::Bind();
         _Server::Accept();
         _Server::Close();
@@ -23,7 +55,7 @@ int main(int argc, char *argv[])
     else {
         std::cout << "[ERROR] Invalid argument." << std::endl;
         return 1;
-    }
+    }*/
 
     std::cout << "[LOG] WSAStartup exited" << std::endl;
     WSACleanup();

@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TicTacToe.cpp" />
     <ClCompile Include="TicTacToeOnline.cpp" />
     <ClCompile Include="_Client.cpp" />
     <ClCompile Include="_Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TicTacToe.h" />
     <ClInclude Include="_Client.h" />
     <ClInclude Include="_Header.h" />
     <ClInclude Include="_Server.h" />
