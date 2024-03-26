@@ -1,6 +1,6 @@
 #pragma once
 #include "_Header.h"
-class _Server
+class _Server 
 {
 private:
 	static addrinfo hints, *servinfo, *p;
@@ -12,5 +12,7 @@ public:
 
 	static void Bind();
 	static void Accept();
+	static int Send(int position);
+	static int Recv();
 	static void Close();
 };

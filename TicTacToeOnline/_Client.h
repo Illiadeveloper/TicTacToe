@@ -1,6 +1,6 @@
 #pragma once
 #include "_Header.h"
-class _Client
+class _Client 
 {
 private:
 	static addrinfo hints, *servinfo, *p;
@@ -11,7 +11,9 @@ private:
 public:
 	_Client() = delete;
 
-	static void Connect();
+	static void Connect(char* addr);
+	static int Send(int _data);
+	static int Recv();
 	static void Close();
 };
 

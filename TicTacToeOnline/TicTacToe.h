@@ -4,7 +4,8 @@ class TicTacToe
 {
 private:
 	static char board[3][3];
-	static bool curPlayer;
+
+	static int CheckGameStatus() noexcept;
 public:
 	TicTacToe() = delete;
 	TicTacToe(const TicTacToe&) = delete;
@@ -12,5 +13,5 @@ public:
 
 	static void ShowBoard() noexcept;
 	static void InitializeBoard() noexcept;
-	static int Turn(int position) noexcept;
+	static int Turn(int position, bool curPlayer) noexcept;
 };

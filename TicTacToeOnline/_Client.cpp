@@ -10,12 +10,12 @@ int _Client::numbytes;
 char _Client::s[INET6_ADDRSTRLEN];
 char _Client::buff[MAXDATASIZE];
 
-void _Client::Connect()
+void _Client::Connect(char* addr)
 {
 	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-	if ((rv = getaddrinfo("localhost", PORT, &hints, &servinfo) != 0)) {
+	if ((rv = getaddrinfo(addr, PORT, &hints, &servinfo) != 0)) {
 		std::cout << "[ERROR] getaddrinfo: " << gai_strerror(rv) << std::endl;
 		return;
 	}
@@ -44,12 +44,41 @@ void _Client::Connect()
 
 	inet_ntop(p->ai_family, get_in_addr((sockaddr*)&p->ai_addr), s, sizeof(s));
 	std::cout << "[LOG] client: connect to " << s << std::endl;
+}
 
-	if ((numbytes = recv(sockfd, buff, sizeof(buff), 0)) == -1) {
-		std::cout << "[ERROR] client: recv" << std::endl;
-		return;
+int _Client::Send(int _data)
+{
+	char _buff[sizeof(int)];
+	memcpy(_buff, &_data, sizeof(int));
+
+	if (send(sockfd, _buff, sizeof(int), 0) == -1) {
+		std::cout << "[ERROR] can't send" << std::endl;
+		closesocket(sockfd);
+		return -1;
 	}
-	std::cout << "[LOG] client received: " << buff << std::endl;
+
+	return 0;
+}
+
+int _Client::Recv()
+{
+	int numbytes;
+	int position;
+
+	char _buff[sizeof(int)];
+	if ((numbytes = recv(sockfd, _buff, sizeof(int), 0)) == -1) {
+		std::cout << "[ERROR] can't recv" << std::endl;
+		closesocket(sockfd);
+		return -1;
+	}
+	else if (numbytes == 0) {
+		std::cout << "[LOG] Connection closed" << std::endl;
+		closesocket(sockfd);
+		return -2;
+	}
+
+	memcpy(&position, _buff, sizeof(int));
+	return position;
 }
 
 void _Client::Close()

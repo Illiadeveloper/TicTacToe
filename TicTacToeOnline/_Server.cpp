@@ -64,16 +64,46 @@ void _Server::Accept()
     }
     inet_ntop(their_addr.ss_family, get_in_addr((sockaddr*)&their_addr), s, sizeof(s));
     std::cout << "[LOG] got connect from " << s << std::endl;
+}
 
-    if (send(new_fd, "Hello Client!", 13, 0) == -1) {
+int _Server::Send(int position)
+{
+    char buff[sizeof(int)];
+    memcpy(buff, &position, sizeof(position));
+
+    if (send(new_fd, buff, 13, 0) == -1) {
         std::cout << "[ERROR] can't send" << std::endl;
         closesocket(new_fd);
+        return -1;
     }
-    closesocket(new_fd);
+
+    return 0;
+}
+
+int _Server::Recv()
+{
+    int numbytes;
+    int position;
+
+    char buff[sizeof(int)];
+    if ((numbytes = recv(new_fd, buff, sizeof(buff), 0)) == -1) {
+        std::cout << "[ERROR] can't recv" << std::endl;
+        closesocket(new_fd);
+        return -1;
+    }
+    else if (numbytes == 0) {
+        std::cout << "[LOG] Connection closed" << std::endl;
+        closesocket(new_fd);
+        return -2;
+    }
+
+    memcpy(&position, buff, sizeof(buff));
+    return position;
 }
 
 void _Server::Close()
 {
     closesocket(sockfd);
+    closesocket(new_fd);
     std::cout << "[LOG] Server close..." << std::endl;
 }
