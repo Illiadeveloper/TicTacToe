@@ -71,7 +71,7 @@ int _Server::Send(int position)
     char buff[sizeof(int)];
     memcpy(buff, &position, sizeof(position));
 
-    if (send(new_fd, buff, 13, 0) == -1) {
+    if (send(new_fd, buff, sizeof(buff), 0) == -1) {
         std::cout << "[ERROR] can't send" << std::endl;
         closesocket(new_fd);
         return -1;
